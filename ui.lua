@@ -262,11 +262,6 @@ return function(scriptId, callback)
 		textKey:GetPropertyChangedSignal("Text"):Connect(onChangeKeyValue)
 		btn.MouseButton1Click:Connect(onClick)
 
-		handleAuthScriptById(3, function()
-			warn("Succes correcly!")
-		end)
-
-
 	end
 	coroutine.wrap(LRVU_fake_script)()
 
