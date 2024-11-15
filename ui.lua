@@ -8,7 +8,7 @@ return function(scriptId, callback)
 	local authTitle = Instance.new("TextLabel")
 	local textKey = Instance.new("TextBox")
 	local btn_2 = Instance.new("TextButton")
-	local err = Instance.new("TextLabel")
+	local error = Instance.new("TextLabel")
 
 
 	DevStudiosAuth.ResetOnSpawn = false
@@ -116,25 +116,25 @@ return function(scriptId, callback)
 	btn_2.TextSize = 14.000
 	btn_2.TextWrapped = true
 
-	err.Name = "err"
-	err.Parent = container
-	err.AnchorPoint = Vector2.new(0.5, 0.5)
-	err.BackgroundColor3 = Color3.fromRGB(186, 0, 6)
-	err.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	err.BorderSizePixel = 0
-	err.Position = UDim2.new(0.5, 0, 0.25, 0)
-	err.Size = UDim2.new(1, 0, 0.100000001, 0)
-	err.Visible = false
-	err.Font = Enum.Font.SourceSans
-	err.Text = ""
-	err.TextColor3 = Color3.fromRGB(255, 255, 255)
-	err.TextScaled = true
-	err.TextSize = 14.000
-	err.TextWrapped = true
+	error.Name = "error"
+	error.Parent = container
+	error.AnchorPoint = Vector2.new(0.5, 0.5)
+	error.BackgroundColor3 = Color3.fromRGB(186, 0, 6)
+	error.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	error.BorderSizePixel = 0
+	error.Position = UDim2.new(0.5, 0, 0.25, 0)
+	error.Size = UDim2.new(1, 0, 0.100000001, 0)
+	error.Visible = false
+	error.Font = Enum.Font.SourceSans
+	error.Text = ""
+	error.TextColor3 = Color3.fromRGB(255, 255, 255)
+	error.TextScaled = true
+	error.TextSize = 14.000
+	error.TextWrapped = true
 
 	-- Scripts:
 
-	local function AOWS_fake_script() -- btn.LocalScript 
+	local function XZNL_fake_script() -- btn.LocalScript 
 		local script = Instance.new('LocalScript', btn)
 
 		local btn = script.Parent
@@ -148,8 +148,8 @@ return function(scriptId, callback)
 
 
 	end
-	coroutine.wrap(AOWS_fake_script)()
-	local function JRWKNH_fake_script() -- DevStudiosAuth.LocalScript 
+	coroutine.wrap(XZNL_fake_script)()
+	local function LRVU_fake_script() -- DevStudiosAuth.LocalScript 
 		local script = Instance.new('LocalScript', DevStudiosAuth)
 
 		local userId = game:GetService('Players').LocalPlayer.UserId
@@ -225,7 +225,7 @@ return function(scriptId, callback)
 
 				if data and data.err then
 					if type(data.err) == 'string' then
-						onError(data.err)
+						onError(data.error)
 					else
 						onError(data.err[1])
 					end
@@ -262,6 +262,12 @@ return function(scriptId, callback)
 		textKey:GetPropertyChangedSignal("Text"):Connect(onChangeKeyValue)
 		btn.MouseButton1Click:Connect(onClick)
 
+		handleAuthScriptById(3, function()
+			warn("Succes correcly!")
+		end)
+
+
 	end
-	coroutine.wrap(JRWKNH_fake_script)()
+	coroutine.wrap(LRVU_fake_script)()
+
 end
