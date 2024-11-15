@@ -223,8 +223,8 @@ local function JRWKNH_fake_script() -- DevStudiosAuth.LocalScript
 				local data = httpClient()
 				print(HttpService:JSONEncode(data))
 	
-				if data and data.error then
-					onError(data.error)
+				if data and data.err then
+					onError(data.err)
 					onFinishedIsLoading()
 				elseif data and data.status == 200 then
 					onSucces()
